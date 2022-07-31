@@ -1,28 +1,31 @@
 import Container from 'react-bootstrap/Container';
-import {Navbar, Button} from 'react-bootstrap';
+import {Navbar, Button,Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Fragment } from 'react';
 import {BsFileCode} from "react-icons/bs";
+//import {NavLink} from 'react-router-dom';
 
-function Header() {
-  
+function Header (props) {
+
+  function handleClick(e){
+    props.onSelect(e)
+  }
   return (
     <Fragment>
       <Navbar bg="dark" variant="dark">
         <Container>
+          <Nav className="me-auto">
+            <Nav.Link to={"/"}>Home</Nav.Link>
+            <Nav.Link to={"/about"}>About</Nav.Link>
+          </Nav>
+        </Container>
+        <Container>
           <Navbar.Brand className = 'm-auto'>
-            {/* <img
-              alt=""
-              src={"./assets/qm.jpg"}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            /> */}
             <BsFileCode></BsFileCode>
             Question Bank
           </Navbar.Brand>
         </Container>
-        <Button>
+        <Button onClick={handleClick}>
             Sign In
         </Button>
       </Navbar>

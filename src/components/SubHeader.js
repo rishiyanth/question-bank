@@ -10,7 +10,6 @@ const SubHeader= () => {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-              htmlSize='20'
             />
             <Button variant="outline-success">Search</Button>
         </Form>
